@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils'
-import TaskList from '../../src/components/TaskList'
+import PureTaskList from '../../src/components/PureTaskList'
 //👇 Our story imported here
-import { WithPinnedTasks } from '../../src/components/TaskList.stories'
+import { WithPinnedTasks } from '../../src/components/PureTaskList.stories'
 
 test('Renders pinned tasks at the start of the list', ()  => {
-  const wrapper = mount(TaskList, {
+  const wrapper = mount(PureTaskList, {
     //👇 Story's args used with our test
     propsData: WithPinnedTasks.args
   })
