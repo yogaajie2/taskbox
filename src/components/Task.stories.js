@@ -56,3 +56,13 @@ Archived.args = {
     state: 'TASK_ARCHIVED'
   }
 };
+
+const longTitleString = `AN ABSURDLY RIDICULUOSLY LONG TASK TITLE. BRO  HOW WOULD THIS EVEN FIT? IT'S IMPOSSIBLE BRO. SIKE! IT STILL FITS. JUST ADD MORE TEXT HERE AND THERE. LOREM IPSUM AND ALL THAT. THERE. THAT  SHOULD BE  ENOUGH.`
+export const LongTitle = Template.bind({});
+
+LongTitle.args = {
+  task: {
+    ...Default.args.task,
+    title: longTitleString
+  }
+};
