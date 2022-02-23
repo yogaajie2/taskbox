@@ -21,6 +21,7 @@
         type="text"
         placeholder="Input title"
         readonly
+        style="background: red;"
       />
     </div>
 
