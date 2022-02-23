@@ -1,4 +1,4 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
 
 export default createStore({
   state: {
@@ -12,21 +12,21 @@ export default createStore({
 
   mutations: {
     ARCHIVE_TASK(state, id) {
-      state.tasks.find(task => task.id === id).state = 'TASK_ARCHIVED'
+      state.tasks.find((task) => task.id === id).state = 'TASK_ARCHIVED';
     },
 
     PIN_TASK(state, id) {
-      state.tasks.find(task => task.id === id).state = 'TASK_PINNED'
+      state.tasks.find((task) => task.id === id).state = 'TASK_PINNED';
     }
   },
 
   actions: {
     archiveTask({ commit }, id) {
-      commit('ARCHIVE_TASK', id)
+      commit('ARCHIVE_TASK', id);
     },
 
     pinTask({ commit }, id) {
-      commit('PIN_TASK', id)
+      commit('PIN_TASK', id);
     },
   }
-})
+});

@@ -1,5 +1,5 @@
-import Task from './Task.vue'
-import { action } from "@storybook/addon-actions"
+import Task from './Task.vue';
+import { action } from "@storybook/addon-actions";
 
 export default {
   component: Task,
@@ -11,18 +11,20 @@ export default {
     onPinTask: {},
     onArchiveTask: {}
   }
-}
+};
 
 export const actionsData = {
   onPinTask: action('pin-task'),
   onArchiveTask: action('archive-task')
-}
+};
 
 const Template = args => ({
   components: { Task },
+
   setup() {
-    return { args, ...actionsData }
+    return { args, ...actionsData };
   },
+
   template: '<Task v-bind="args" />'
 })
 
@@ -35,7 +37,7 @@ Default.args = {
     state: 'TASK_INBOX',
     updatedAt: new Date(2018, 0, 1, 9, 0)
   }
-}
+};
 
 export const Pinned = Template.bind({});
 
@@ -44,7 +46,7 @@ Pinned.args = {
     ...Default.args.task,
     state: 'TASK_PINNED'
   }
-}
+};
 
 export const Archived = Template.bind({});
 
@@ -53,4 +55,4 @@ Archived.args = {
     ...Default.args.task,
     state: 'TASK_ARCHIVED'
   }
-}
+};

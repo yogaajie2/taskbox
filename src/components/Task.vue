@@ -9,7 +9,7 @@
       />
 
       <span
-        :aria-label="'pinTask-' + task.id"
+        :aria-label="'archiveTask-' + task.id"
         class="checkbox-custom"
         @click="archiveTask"
       />
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { reactive, computed } from 'vue'
+import { reactive, computed } from 'vue';
 
 export default {
   name: 'Task',
@@ -54,11 +54,11 @@ export default {
         title: ''
       }),
 
-      validator: task => [
+      validator: (task) => [
         'id',
         'state',
         'title'
-      ].every(key => key in task)
+      ].every((key) => key in task)
     }
   },
 
@@ -68,7 +68,7 @@ export default {
   ],
 
   setup(props, { emit }) {
-    props = reactive(props)
+    props = reactive(props);
 
     return {
       classes: computed(() => ({
@@ -86,16 +86,16 @@ export default {
        * Event handler for archiving tasks
        */
       archiveTask() {
-        emit('archive-task', props.task.id)
+        emit('archive-task', props.task.id);
       },
 
       /**
        * Event handler for pinning tasks
        */
       pinTask() {
-        emit('pin-task', props.task.id)
+        emit('pin-task', props.task.id);
       }
-    }
+    };
   }
-}
+};
 </script>

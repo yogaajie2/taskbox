@@ -16,7 +16,8 @@
     </template>
 
     <template v-else>
-      <Task v-for="task in tasksInOrder"
+      <Task
+        v-for="task in tasksInOrder"
         :key="task.id"
         :task="task"
         @archive-task="onArchiveTask"
@@ -27,7 +28,7 @@
 </template>
 
 <script>
-import Task from './Task'
+import Task from './Task';
 import { reactive, computed } from "vue";
 
 export default {
@@ -38,7 +39,7 @@ export default {
     tasks: {
       type: Array,
       required: true,
-      default: () => {}
+      default: () => []
     },
 
     loading: {
@@ -53,16 +54,16 @@ export default {
   ],
 
   setup(props, { emit }) {
-    props = reactive(props)
+    props = reactive(props);
 
     return {
       isEmpty: computed(() => props.tasks.length === 0),
 
-      tasksInOrder:computed(()=>{
+      tasksInOrder: computed(()=> {
         return [
-          ...props.tasks.filter(t => t.state === 'TASK_PINNED'),
-          ...props.tasks.filter(t => t.state !== 'TASK_PINNED'),
-        ]
+          ...props.tasks.filter((t) => t.state === 'TASK_PINNED'),
+          ...props.tasks.filter((t) => t.state !== 'TASK_PINNED'),
+        ];
       }),
 
       /**
@@ -78,7 +79,7 @@ export default {
       onPinTask(taskId) {
         emit('pin-task', taskId);
       }
-    }
+    };
   }
-}
+};
 </script>
